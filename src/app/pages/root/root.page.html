@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-title>
+        <h4>Hello {{you || 'Angular'}}</h4>
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+              <mat-label>Enter your name</mat-label>
+              <input name="you" type="text" matInput [(ngModel)]="you" />
+            </mat-form-field>
+        </form>
+        <div *ngIf="lambda.valid">
+            <button mat-raised-button color="primary" (click)="ping()">
+                Ping AWS Lambda
+            </button>
+            <br/><br/>
+            <mat-chip-list>
+                <mat-chip *ngFor="let item of dbResults">
+                    {{item.value}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+       
+    </mat-card-content>
+</mat-card>
