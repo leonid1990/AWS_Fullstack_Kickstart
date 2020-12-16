@@ -3,7 +3,7 @@
 mat-card
 {
     display: block;
-    margin: 3em auto;
+    margin: 1em auto;
     width: 20em;
     min-height: 14em;
 }
@@ -16,4 +16,11 @@ mat-card
 mat-form-field
 {
     width: calc(100% - 1.5em);   
+}
+
+button.create-item
+{
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
 }

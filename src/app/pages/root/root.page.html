@@ -5,21 +5,36 @@
     <mat-card-content>
         <form>
             <mat-form-field>
-              <mat-label>Enter your name</mat-label>
-              <input name="you" type="text" matInput [(ngModel)]="you" />
+                <mat-label>Enter your name</mat-label>
+                <input name="you" type="text" matInput [(ngModel)]="you" />
             </mat-form-field>
         </form>
         <div *ngIf="lambda.valid">
             <button mat-raised-button color="primary" (click)="ping()">
                 Ping AWS Lambda
             </button>
-            <br/><br/>
+            <br /><br />
             <mat-chip-list>
                 <mat-chip *ngFor="let item of dbResults">
                     {{item.value}}
                 </mat-chip>
             </mat-chip-list>
         </div>
-       
+
     </mat-card-content>
 </mat-card>
+
+<mat-card *ngFor="let item of list">
+    <form>
+        <mat-form-field>
+            <mat-label>Item name</mat-label>
+            <input name="sample" type="text" matInput [(ngModel)]="item.name" />
+        </mat-form-field>
+    </form>
+    <mat-checkbox [(ngModel)]="item.name"></mat-checkbox> &nbsp;
+    <mat-slider [(ngModel)]="item.amount"></mat-slider>
+    <span>{{item.amount}}</span>
+</mat-card>
+<button class="create-item" mat-raised-button color="primary" (click)="addNewItem()">
+    Add new Item
+</button>
